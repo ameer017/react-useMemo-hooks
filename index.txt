@@ -1,0 +1,30 @@
+// userInput and setUserInput are used for managing user input.
+  const [userInput, setUserInput] = useState("");
+
+  // result and setResult are used for storing the result (initialized with 0).
+  const [result, setResult] = useState(0);
+
+  // num1 and num2 are state variables initialized with the values 4 and 5, respectively.
+  const [num1] = useState(4);
+  const [num2] = useState(5);
+
+  // Memoized Functions: Two memoized functions, sum and buildArray, are defined using the useCallback hook:
+
+  // sum is a memoized function that calculates the sum of num1 and num2. Since it has no dependencies listed, it will not change its reference as long as the component is mounted.
+  // buildArray is a memoized function that returns an array containing num1 and num2. It lists [num1, num2] as its dependency array, which means it will only change its reference if either num1 or num2 changes.
+    const sum = useCallback(() => num1 + num2, [num1, num2]);
+    const buildArray = useCallback(() => [num1, num2], [num1, num2]);
+
+  useEffect(() => {
+    console.log(`New sum.value: ${sum()}`);
+    setResult(sum())
+    
+  }, [sum, buildArray]);
+
+  <input
+        type="text"
+        placeholder="input"
+        value={userInput}
+        onChange={(e) => setUserInput(e.target.value)}
+      />
+      <h1>Output: {userInput || ".."}</h1>
