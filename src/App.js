@@ -23,12 +23,10 @@ const getArray = () => {
 
 
 
-
-
 function App() {
   const [userNumber, setUserNumber] = useState("");
-  // typing into the random input means updating the state and everytime a state is update in react, it re renders the component
-  // and when the component re renders, its recalculating the  fib number
+  // typing into the random input means updating the state and every time a state is update in react, it re renders the component
+  // and when the component re renders, its recalculating the fib number
   const [randomInput, setRandomInput] = useState("");
 
   // step 3
